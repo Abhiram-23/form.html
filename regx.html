@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>registration form</title>
+        <script text="type/javascript">
+            function signin(){
+                var uname = document.getElementById("username").value;
+                var pass = document.getElementById('pass').value;
+                var email = document.getElementById('email').value;
+                var regx = /^([a-zA-A0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,20})$/;
+                var a=false;
+                var b=false;
+                var c = false;
+                if(uname.length<10  && uname.trim!=''){
+                    document.getElementById('lbl').style.visibility="visible";
+                    document.getElementById("lbl").innerHTML='In-Valid';
+                    document.getElementById("lbl").style.color='red';
+                    a = false;
+                }
+                else{
+                    document.getElementById("lbl").innerHTML='Valid';
+                    document.getElementById("lbl").style.color='green';
+                    document.getElementById("lbl").style.visibility='visible';
+                    a = true;
+                }
+                if (regx.test(email)){
+                    document.getElementById("lbl2").innerHTML='Valid';
+                    document.getElementById("lbl2").style.color='green';
+                    document.getElementById("lbl2").style.visibility='visible';
+                    b=true;
+                }
+                else{  
+                    document.getElementById('lbl2').style.visibility='visible';
+                    document.getElementById("lbl2").innerHTML='In-Valid';
+                    document.getElementById("lbl2").style.color='red';
+                    b=false;
+                }
+                if(pass.length<8 && pass.trim!=''){
+                    document.getElementById('lbl3').style.visibility="visible";
+                    document.getElementById("lbl3").innerHTML='In-Valid';
+                    document.getElementById("lbl3").style.color='red';
+                    c=false;
+                }
+                else{
+                    document.getElementById("lbl3").innerHTML='Valid';
+                    document.getElementById("lbl3").style.color='green';
+                    document.getElementById("lbl3").style.visibility='visible';
+                    c = true;
+                }
+                if( a==true && b==true && c==ture){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body style="background-image: url('image.png');">
+
+        <div style="vertical-align: middle;text-align:center;" ><form onclick="return signin()" action="file:///C:/Users/pabhi/OneDrive/Desktop/signup.html">
+            <input type="text" id='username' placeholder="username"><br>
+            <label id='lbl' style="color:red;visibility:hidden">Invalid</label><br>
+            <input type="email" id='email' placeholder="enter your email"><br>
+            <label id='lbl2' style="color:red;visibility:hidden">Invalid</label><br>
+            <input type="password" id='pass' placeholder="password"><br>
+            <label id='lbl3' style="color:red;visibility:hidden">Invalid</label><br>
+            <button type="submit"  onclick="signin()">signin</button>
+            <button type="button" onclick="signup()" >sign-up</button>
+        </form></div>
+    </body>
+</html>
